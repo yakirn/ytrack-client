@@ -1,0 +1,7 @@
+{
+  "generator-react-webpack": {
+    "appName": "ytrackClient",
+    "style": "scss",
+    "postcss": true
+  }
+}
