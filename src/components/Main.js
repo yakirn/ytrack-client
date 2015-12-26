@@ -6,6 +6,10 @@ import React from 'react';
 let yeomanImage = require('../images/yeoman.png');
 
 class AppComponent extends React.Component {
+	// myProp = 42;
+	// myBindedFunc = () => {
+	// 	return "I'm binded to #{this.myProp}";
+	// }
   render() {
     return (
       <div className="index">
