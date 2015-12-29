@@ -1,8 +1,11 @@
-var path = require('path');
-var port = 8000;
-var srcPath = path.join(__dirname, '/../src');
-var publicPath = '/assets/';
+'use strict';
+let path = require('path');
+let port = 8000;
+let srcPath = path.join(__dirname, '/../src');
+let publicPath = '/assets/';
+let additionalPaths = [];
 module.exports = {
+  additionalPaths: additionalPaths,
   port: port,
   debug: true,
   output: {
@@ -36,7 +39,7 @@ module.exports = {
   module: {
     preLoaders: [{
         test: /\.(js|jsx)$/,
-        include: path.join(__dirname, 'src'),
+        include: srcPath,
         loader: 'eslint-loader'
       }],
     loaders: [

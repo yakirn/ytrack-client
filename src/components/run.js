@@ -1,7 +1,20 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { render } from 'react-dom';
+import { Provider } from 'react-redux';
+import configureStore from '../stores';
+import App from '../containers/App';
 
-import Rood from './Root';
 
-// Render the main component into the dom
-ReactDOM.render(<Root />, document.getElementById('app'));
+import { createHistory } from 'history';
+import { syncReduxAndRouter } from 'redux-simple-router';
+
+const store = configureStore();
+const history = createHistory();
+
+syncReduxAndRouter(history, store)
+render(
+<Provider store={store}>
+	<App history={history} />
+  </Provider>,
+  document.getElementById('app')
+);

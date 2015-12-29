@@ -2,19 +2,19 @@ require('normalize.css');
 require('styles/App.css');
 
 import React from 'react';
+import  Router from 'react-router';
+// import {Route} from 'react-router';
 
 let yeomanImage = require('../images/yeoman.png');
 
 class AppComponent extends React.Component {
-	// myProp = 42;
-	// myBindedFunc = () => {
-	// 	return "I'm binded to #{this.myProp}";
-	// }
   render() {
+  	console.debug(Router);
     return (
       <div className="index">
         <img src={yeomanImage} alt="Yeoman Generator" />
         <div className="notice">Please edit <code>src/components/Main.js</code> to get started!</div>
+        {this.props.children}
       </div>
     );
   }
