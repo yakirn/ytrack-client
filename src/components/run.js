@@ -11,7 +11,8 @@ import { syncReduxAndRouter } from 'redux-simple-router';
 const store = configureStore();
 const history = createHistory();
 
-syncReduxAndRouter(history, store)
+syncReduxAndRouter(history, store);
+
 render(
 <Provider store={store}>
 	<App history={history} />

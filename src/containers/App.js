@@ -12,7 +12,7 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import {Router, Route, IndexRoute} from 'react-router';
 import Main from '../components/Main';
-import SearchComponent from '../components/SearchComponent';
+import SearchMovies from './SearchMovies';
 
 /* Populated by react-webpack-redux:reducer */
 class App extends Component {
@@ -21,12 +21,10 @@ class App extends Component {
     return (
         <Router history={history}>
           <Route path="/" component={Main}>
-            <IndexRoute component={SearchComponent}/>
+            <IndexRoute component={SearchMovies} />
           </Route>
         </Router>
       );
-      // <Main actions={actions} search={search}>
-      // </Main>
   }
 }
 /* Populated by react-webpack-redux:reducer

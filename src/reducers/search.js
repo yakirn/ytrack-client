@@ -21,9 +21,10 @@ module.exports = function(state = initialState, action) {
     } break;
     */
     case 'SEARCH_MOVIES': {
+      console.log(action.query);
       return {
-                isFetching: false,
-                query: '',
+                isFetching: true,
+                query: action.query,
                 items: []
             };
       break;

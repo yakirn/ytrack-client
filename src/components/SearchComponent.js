@@ -1,28 +1,45 @@
 'use strict';
 
 import React from 'react';
+import ReactDOM from 'react-dom';
+import { connect } from 'react-redux';
 
 require('styles//Search.scss');
 
-class SearchComponent extends React.Component {
+export default class SearchComponent extends React.Component {
+  constructor(props){
+    super(props);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  handleSubmit(e) {
+      e.preventDefault();
+      var query = ReactDOM.findDOMNode(this.refs.query).value.trim();
+      if (!query) return;
+      if(!this.props.isFetching)
+        this.props.onSearch(query);
+
+  };
+
   render() {
     return (
-      <ul>
-      	<li>sdfsdgdsggdsg</li>
-      	<li>sdfsdgdsggdsg</li>
-      	<li>sdfsdgdsggdsg</li>
-      	<li>sdfsdgdsggdsg</li>
-      	<li>sdfsdgdsggdsg</li>
-      	<li>sdfsdgdsggdsg</li>
-      </ul>
+        <div>
+          <form className="Search" onSubmit={this.handleSubmit}>
+              <input type="text" placeholder="Search title or description..." ref="query"/>
+              <input type="text" placeholder="Year" ref="year"/>
+              <button type="submit">Search</button>
+          </form>
+        </div>
     );
   }
 }
 
-SearchComponent.displayName = 'SearchComponent';
+// SearchComponent.displayName = 'SearchComponent';
 
 // Uncomment properties you need
-// SearchComponent.propTypes = {};
-// SearchComponent.defaultProps = {};
-
-export default SearchComponent;
+SearchComponent.propTypes = {
+  onSearch: React.PropTypes.func.isRequired,
+  isFetching: React.PropTypes.bool.isRequired,
+  query: React.PropTypes.string.isRequired,
+  items: React.PropTypes.array.isRequired
+};
