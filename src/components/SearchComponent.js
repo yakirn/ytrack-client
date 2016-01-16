@@ -2,8 +2,6 @@
 
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { connect } from 'react-redux';
-
 require('styles//Search.scss');
 
 export default class SearchComponent extends React.Component {

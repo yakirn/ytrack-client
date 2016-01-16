@@ -2,8 +2,7 @@ require('normalize.css');
 require('styles/App.css');
 
 import React from 'react';
-import  Router from 'react-router';
-import Header from './HeaderComponent';
+import Header from '../containers/Header';
 // import {Route} from 'react-router';
 
 let yeomanImage = require('../images/yeoman.png');

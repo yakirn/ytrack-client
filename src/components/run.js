@@ -1,3 +1,6 @@
+// Do this once before any other code in your app
+import "babel-polyfill";
+
 import React from 'react';
 import { render } from 'react-dom';
 import { Provider } from 'react-redux';

@@ -10,21 +10,24 @@ import React, {
 } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import {Router, Route, IndexRoute} from 'react-router';
+import {
+  Router,
+  Route,
+  IndexRoute
+} from 'react-router';
 import Main from '../components/Main';
 import SearchMovies from './SearchMovies';
-
 /* Populated by react-webpack-redux:reducer */
 class App extends Component {
   render() {
     const {actions, search, history} = this.props;
     return (
-        <Router history={history}>
-          <Route path="/" component={Main}>
-            <IndexRoute component={SearchMovies} />
+      <Router history={history}>
+          <Route path='/' component={Main}>
+            <IndexRoute component={SearchMovies}/>
           </Route>
         </Router>
-      );
+    );
   }
 }
 /* Populated by react-webpack-redux:reducer
@@ -34,16 +37,20 @@ class App extends Component {
  */
 App.propTypes = {
   actions: PropTypes.object.isRequired,
-  search: PropTypes.object.isRequired
+  search: PropTypes.object.isRequired,
+  user: PropTypes.object.isRequired
 };
 function mapStateToProps(state) {
   /* Populated by react-webpack-redux:reducer */
-  const props = { search: state.search };
+  const props = { search: state.search, user: state.user };
   return props;
 }
 function mapDispatchToProps(dispatch) {
   /* Populated by react-webpack-redux:action */
-  const actions = { searchMovies: require('../actions/search/searchMovies.js') };
+  const actions = {
+    searchMovies: require('../actions/search/searchMovies.js'),
+    login: require('../actions/user/login.js')
+  };
   const actionMap = { actions: bindActionCreators(actions, dispatch) };
   return actionMap;
 }
