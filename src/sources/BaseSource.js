@@ -1,3 +1,5 @@
+import _ from 'lodash';
+
 const TRAK_ENDPOINT = "https://api-v2launch.trakt.tv/",
 		YTRAK_ENDPOINT = 'http://localhost:8080/';
 

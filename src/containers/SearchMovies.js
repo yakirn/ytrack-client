@@ -4,12 +4,16 @@ import React, {
 } from 'react';
 import { connect } from 'react-redux';
 import SearchComponent from '../components/SearchComponent';
-const onSearch = require('../actions/search/searchMovies.js')
+import ResultsComponent from '../components/ResultsComponent'
+import {searchMovies} from '../actions/search/searchMovies.js'
 
 class SearchMovies extends Component {
 	render() {
 	    return (
-	            <SearchComponent {...this.props.search} onSearch={(query) => this.props.dispatch(onSearch(query))} />
+	    	<div>
+	            <SearchComponent {...this.props.search} onSearch={(query) => this.props.dispatch(searchMovies(query))} />
+	            <ResultsComponent {...this.props.search} />
+			</div>
 	      );
 	  }
 }
