@@ -2,9 +2,10 @@
 
 import React from 'react';
 import ReactDOM from 'react-dom';
+import PureComponent from 'react-pure-render/component';
 require('styles//Search.scss');
 
-export default class SearchComponent extends React.Component {
+export default class SearchComponent extends PureComponent {
   constructor(props){
     super(props);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -38,6 +39,6 @@ export default class SearchComponent extends React.Component {
 SearchComponent.propTypes = {
   onSearch: React.PropTypes.func.isRequired,
   isFetching: React.PropTypes.bool.isRequired,
-  query: React.PropTypes.string.isRequired,
-  items: React.PropTypes.array.isRequired
+  query: React.PropTypes.string,
+  searchResults: React.PropTypes.array
 };

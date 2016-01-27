@@ -1,19 +1,14 @@
 /* Base Application Styles */
-body {
-  background: #e1e1e1;
+html, body, #app {
+  width: 100%;
+  height: 100%;
 }
-
-.ytrack-app img {
-  margin: 40px auto;
-  border-radius: 4px;
-  background: #fff;
-  display: block;
+#app {
+	background: #e1e1e1;
 }
-
-.ytrack-app .notice {
-  margin: 20px auto;
-  padding: 15px 0;
-  text-align: center;
-  border: 1px solid #000;
-  border-width: 1px 0;
+.ytrack-app {
+    width: 60%;
+    margin: auto;
+    height: 100%;
+    background: #fff;
 }

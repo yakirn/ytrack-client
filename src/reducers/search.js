@@ -1,4 +1,5 @@
 import {SEARCHING_MOVIES, SEARCH_MOVIES_SUCCESS, SEARCH_MOVIES_ERROR, searchMovies } from '../actions/search/searchMovies';
+import Immutable from 'immutable';
 
 /* Define your initial state here.
  *
@@ -7,8 +8,7 @@ import {SEARCHING_MOVIES, SEARCH_MOVIES_SUCCESS, SEARCH_MOVIES_ERROR, searchMovi
  */
 const initialState = {
   isFetching: false,
-  query: '',
-  searchResults: []
+  query: ''
 };
 
 module.exports = function(state = initialState, action) {
@@ -23,9 +23,10 @@ module.exports = function(state = initialState, action) {
     } break;
     */
     case SEARCHING_MOVIES: {
-      return Object.assign({}, state, {
+      return {
                 isFetching: true,
-        });
+                query: action.query
+      };
     }
     case SEARCH_MOVIES_SUCCESS: {
       return Object.assign({}, state, {
@@ -36,7 +37,8 @@ module.exports = function(state = initialState, action) {
     }
     case SEARCH_MOVIES_ERROR: {
       return Object.assign({}, state, {
-            error: action.error
+                isFetching: false,
+                error: action.error
         });
     }
     default: {

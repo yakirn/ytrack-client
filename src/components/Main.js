@@ -5,6 +5,8 @@ import React from 'react';
 import Header from '../containers/Header';
 // import {Route} from 'react-router';
 
+import DevTools from '../containers/DevTools';
+
 let yeomanImage = require('../images/yeoman.png');
 
 class AppComponent extends React.Component {
@@ -13,6 +15,7 @@ class AppComponent extends React.Component {
       <div className="ytrack-app">
         <Header />
         {this.props.children}
+        <DevTools />
       </div>
     );
   }

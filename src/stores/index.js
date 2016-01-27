@@ -1,15 +1,19 @@
 import thunkMiddleware from 'redux-thunk'
 import createLogger from 'redux-logger'
 
-import { createStore, applyMiddleware } from 'redux';
+import { createStore, applyMiddleware, compose } from 'redux';
 import reducers from '../reducers';
+import DevTools from '../containers/DevTools';
 
 const loggerMiddleware = createLogger()
 
-const createStoreWithMiddleware = applyMiddleware(
-  thunkMiddleware, // lets us dispatch() functions
-  loggerMiddleware // neat middleware that logs actions
-)(createStore)
+const createStoreWithMiddleware = compose(
+    applyMiddleware(
+        thunkMiddleware, // lets us dispatch() functions
+        loggerMiddleware, // neat middleware that logs actions
+    ),
+    DevTools.instrument(),
+  )(createStore)
 
 
 module.exports = function(initialState) {

@@ -6,8 +6,10 @@ import { connect } from 'react-redux';
 import SearchComponent from '../components/SearchComponent';
 import ResultsComponent from '../components/ResultsComponent'
 import {searchMovies} from '../actions/search/searchMovies.js'
+import PureComponent from 'react-pure-render/component';
 
-class SearchMovies extends Component {
+
+class SearchMovies extends PureComponent {
 	render() {
 	    return (
 	    	<div>
