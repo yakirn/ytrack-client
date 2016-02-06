@@ -23,11 +23,11 @@ function shouldSearchMovies(state, query){
 	return state.isFetching !== true && !_.isEmpty(query);
 }
 
-export function searchMovies(query) {
+export default function searchMovies(query, year) {
 	return (dispatch, getState) => {
 		if (shouldSearchMovies(getState(), query)) {
 			dispatch(searchingMovies(query));
-			return SearchSource.search({query, type: TYPE_MOVIE})
+			return SearchSource.search({query, type: TYPE_MOVIE, year})
 				.then(searchResults => {
 					dispatch(searchMoviesSuccess(searchResults));
 				})

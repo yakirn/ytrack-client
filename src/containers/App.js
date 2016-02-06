@@ -4,29 +4,16 @@
  *          This modifications only run once when the generator is invoked - if
  *          you edit them, they are not updated again.
  */
-import React, {
-  Component,
-  PropTypes
-} from 'react';
+import React, {Component, PropTypes } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import {
-  Router,
-  Route,
-  IndexRoute
-} from 'react-router';
-import Main from '../components/Main';
-import SearchMovies from './SearchMovies';
+import {Router, Route, IndexRoute } from 'react-router';
 /* Populated by react-webpack-redux:reducer */
 class App extends Component {
   render() {
     const {actions, search, history} = this.props;
     return (
-      <Router history={history}>
-          <Route path='/' component={Main}>
-            <IndexRoute component={SearchMovies}/>
-          </Route>
-        </Router>
+      <div> this should not be included in the app </div>
     );
   }
 }

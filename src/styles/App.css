@@ -8,7 +8,7 @@ html, body, #app {
 }
 .ytrack-app {
     width: 60%;
-    margin: auto;
+    margin: 0 38% 0 2%;
     height: 100%;
     background: #fff;
 }

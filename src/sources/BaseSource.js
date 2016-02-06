@@ -49,8 +49,11 @@ export default class BaseSource {
 		return this.xhr(url, data, 'POST', requestHeaders);
 	}
 	static toQueryString(obj) {
-	  const queryString = _.map(obj, (v,k) => encodeURIComponent(k) + '=' + encodeURIComponent(v))
-	  		.join('&');
+	  const queryString = _.chain(obj)
+	  						.map((v,k) => (v != undefined && v !== '') ? encodeURIComponent(k) + '=' + encodeURIComponent(v) : '')
+	  						.without('')
+	  						.join('&')
+  							.value();
   		return  '?' + queryString;
 	}
 	static serializePostData(data) {

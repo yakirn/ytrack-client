@@ -3,6 +3,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import PureComponent from 'react-pure-render/component';
+import _ from 'lodash';
+
 require('styles//Search.scss');
 
 export default class SearchComponent extends PureComponent {
@@ -14,9 +16,10 @@ export default class SearchComponent extends PureComponent {
   handleSubmit(e) {
       e.preventDefault();
       var query = ReactDOM.findDOMNode(this.refs.query).value.trim();
+      var year = ReactDOM.findDOMNode(this.refs.year).value.trim();
       if (!query) return;
       if(!this.props.isFetching)
-        this.props.onSearch(query);
+        this.props.onSearch(query, year);
 
   };
 
