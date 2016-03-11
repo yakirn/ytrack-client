@@ -9,16 +9,18 @@ import configureStore from '../stores';
 import {Router, Route, IndexRoute } from 'react-router';
 import Main from '../components/Main';
 import SearchMovies from '../containers/SearchMovies';
+// import RelatedMovies from '../components/RelatedMoviesComponent';
+import RelatedMovies from '../containers/RelatedMovies';
 import { browserHistory } from 'react-router'
 
 const store = configureStore();
 
 render(
 <Provider store={store}>
-	{ /*<App history={browserHistory} /> */}
 	<Router history={browserHistory}>
           <Route path='/' component={Main}>
             <IndexRoute component={SearchMovies}/>
+            <Route path='movies/:id/related' component={RelatedMovies} />
           </Route>
     </Router>
   </Provider>,

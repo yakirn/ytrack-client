@@ -11,7 +11,8 @@ import { routeReducer } from 'react-router-redux';
 /* Populated by react-webpack-redux:reducer */
 const reducers = {
   routing: routeReducer,
-  search: require('../reducers/search.js'),
-  user: require('../reducers/user.js')
+  search: require('../reducers/movies/search.js'),
+  user: require('../reducers/user.js'),
+  related: require('../reducers/movies/related.js')
 };
 module.exports = combineReducers(reducers);

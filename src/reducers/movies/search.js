@@ -1,4 +1,4 @@
-import {SEARCHING_MOVIES, SEARCH_MOVIES_SUCCESS, SEARCH_MOVIES_ERROR } from '../actions/search/searchMovies';
+import { SEARCHING_MOVIES, SEARCH_MOVIES_SUCCESS, SEARCH_MOVIES_ERROR } from '../../actions/movies/search';
 import Immutable from 'immutable';
 
 /* Define your initial state here.

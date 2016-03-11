@@ -3,12 +3,21 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	flex-wrap: wrap;
 	margin-bottom: 1.5em;
+	border-bottom: 1px solid black;
 
 	&--thumb {
 		height: 5em;
 	}
 	&--title {
 		margin: 0 auto;
+		flex-grow: 1;
+	}
+	&--overview {
+		overflow: hidden;
+		//white-space: no-wrap;
+		text-overflow: ellipsis;
+		flex-grow: 2;
 	}
 }

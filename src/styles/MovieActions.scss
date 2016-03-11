@@ -1,0 +1,9 @@
+%actionlink {
+	margin-left: 1em;
+}
+
+.movieactions {
+  &--related{
+  	@extend %action-link;
+  }
+}

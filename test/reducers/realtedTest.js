@@ -1,6 +1,6 @@
-var reducer = require('../../src/reducers/movies/search');
+var reducer = require('../../src/reducers/realted');
 
-describe('search', () => {
+describe('realted', () => {
 
   it('should not change the passed state', (done) => {
 

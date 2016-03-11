@@ -5,21 +5,24 @@ import React, {
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import SearchComponent from '../components/SearchComponent';
-import ResultsComponent from '../components/ResultsComponent';
-import { searchMovies } from '../actions/search/searchMovies.js';
+import SearchResultsComponent from '../components/SearchResultsComponent';
 import PureComponent from 'react-pure-render/component';
-import { routeActions } from 'react-router-redux';
-import SearchMoviesAction from '../actions/search/searchMovies';
+import SearchMoviesAction from '../actions/movies/search';
+import RelatedMoviesAction from '../actions/movies/related';
 
 
 class SearchMovies extends PureComponent {
-	render() {
+
+  render() {
+      const { search, actions } = this.props;
+
 	    return (
-	    	<div>
-	            <SearchComponent {...this.props.search} onSearch={(query, year) => this.props.actions.searchMovies(query, year)} />
-	            <ResultsComponent {...this.props.search} />
-			</div>
-	      );
+  	    	<div>
+  	            <SearchComponent {...search} 
+                                  onSearch = { (query, year) => actions.searchMovies(query, year) } />
+  	           <SearchResultsComponent {...search} showRelated = { (traktId) => actions.relatedMovies(traktId) } />
+  			</div>
+     );
 	  }
 }
 
@@ -29,9 +32,9 @@ function mapStateToProps(state, ownProps) {
   };  
 }
 function mapDispatchToProps(dispatch) {
-  /* Populated by react-webpack-redux:action */
   const actions = {
     searchMovies: SearchMoviesAction,
+    relatedMovies: RelatedMoviesAction
   };
   const actionMap = { actions: bindActionCreators(actions, dispatch) };
   return actionMap;

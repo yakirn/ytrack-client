@@ -31,7 +31,7 @@ const ResultsComponent = (props) => {
   	else if(searchResults && searchResults.length == 0 && isFetching && _.isEmpty(query)) 
   		return (
   			<div className="Results">
-  			 <span>"No movies were found that matched #{query}"</span>
+  			 <span>No movies were found that matched your search</span>
   			 </div>
   			);
 
@@ -43,7 +43,7 @@ const ResultsComponent = (props) => {
 		            searchResults.map( result => {
 		          		switch (result.type){
 		          			case 'movie': {
-								      return <MovieItem {...result.movie} key={result.movie.ids.trakt} />;
+								      return <MovieItem {...result.movie} showRelated={props.showRelated} key={result.movie.ids.trakt} />;
 		                }
 		          		}                            
 		            })
