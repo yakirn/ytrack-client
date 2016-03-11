@@ -1,5 +1,6 @@
 import { SEARCHING_MOVIES, SEARCH_MOVIES_SUCCESS, SEARCH_MOVIES_ERROR } from '../../actions/movies/search';
-import Immutable from 'immutable';
+// import Immutable from 'immutable';
+import update from 'react-addons-update';
 
 /* Define your initial state here.
  *
@@ -23,24 +24,33 @@ module.exports = function(state = initialState, action) {
     } break;
     */
     case SEARCHING_MOVIES: {
-      return Object.assign({}, state, {
+      const updates = {
                 isFetching: true,
                 query: action.query,
                 searchResults: undefined
-      });
+      }
+      return update(state, {$merge: updates});
+
+      // return Object.assign({}, state, updates);
     }
     case SEARCH_MOVIES_SUCCESS: {
-      return Object.assign({}, state, {
+      const updates = {
                 isFetching: false,
                 searchResults: action.searchResults
-        });
+        }
+      return update(state, {$merge: updates});
+
+      // return Object.assign({}, state, updates);
 
     }
     case SEARCH_MOVIES_ERROR: {
-      return Object.assign({}, state, {
+      const updates = {
                 isFetching: false,
                 error: action.error
-        });
+        };
+      return update(state, {$merge: updates});
+
+      // return Object.assign({}, state, updates);
     }
     default: {
       /* Return original state if no actions were consumed. */

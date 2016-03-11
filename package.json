@@ -70,11 +70,11 @@
   "dependencies": {
     "babel-polyfill": "^6.3.14",
     "history": "^1.13.1",
-    "immutable": "^3.7.6",
     "lodash": "^3.10.1",
     "normalize.css": "^3.0.3",
     "react": "^0.14.0",
     "react-addons-test-utils": "^0.14.0",
+    "react-addons-update": "^0.14.7",
     "react-dom": "^0.14.0",
     "react-pure-render": "^1.0.2",
     "react-redux": "^4.0.5",
